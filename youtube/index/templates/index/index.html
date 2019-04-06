@@ -1,0 +1,28 @@
+{% extends 'index/base.html' %}
+
+{% block title %} Myoutube {% endblock %}
+
+{% block content %}
+    <div>
+        {% if messages %}
+            {% for message in messages%}
+                <div class="alert alert-{{ message.tags }}">{{message}}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+        <div id = "searchBox">
+            <form class="form-inline my-2 my-lg-0" action="search/" method="POST">
+                {%csrf_token%}
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query">
+                <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+
+ {% endblock %}
+ 
+ <style>
+    body {
+        background-image: url("youtube.png");
+    }
+ </style>

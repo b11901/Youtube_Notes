@@ -1,0 +1,30 @@
+{% extends 'index/base.html' %}
+
+{% block title %} Search results for {{query}}  {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <p>You searched for<b> {{ query }}</b> </p>
+
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                {% for title,description,link,thumbnail,base_link in zip_elem %}
+                    <div class="card" id="card">
+                        <img src={{thumbnail}} >
+                        <a href="/video/{{base_link}}""><h4>{{title}}</h4></a>
+                        <p><b>Description:</b>{{description}}</p>
+                    </div>
+                {%endfor%}
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+
+{% endblock %}
+
+<style>
+    body {
+        background-image: url("youtube.png");
+    }
+</style>
